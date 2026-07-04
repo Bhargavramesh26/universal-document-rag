@@ -1,0 +1,11 @@
+SUPPORTED_FILE_TYPES = [
+    ".pdf",
+    ".docx",
+    ".txt"
+]
+
+MAX_UPLOAD_SIZE_MB = 100
+
+DEFAULT_CHUNK_SIZE = 1000
+
+DEFAULT_CHUNK_OVERLAP = 200
