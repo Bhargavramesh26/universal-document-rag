@@ -7,7 +7,7 @@ from app.utils.file_utils import StorageManager
 from app.exceptions.custom_exceptions import SessionNotFoundError
 from app.services.document_service import DocumentService
 from app.services.vector_service import VectorService
-
+import logging
 class UploadService:
 
     @staticmethod
@@ -55,16 +55,18 @@ class UploadService:
              chunks=document_info["chunks"],
              session_path=session_path
         )
-        print("\n========== VECTOR STORE ==========")
-        print(f"Stored Chunks : {vector_info['chunk_count']}")
-        print("=================================\n")
-        
-        print("\n========== DOCUMENT INFO ==========")
-        print(f"Pages      : {document_info['pages']}")
-        print(f"Chunks     : {document_info['chunk_count']}")
-        print(f"Characters : {document_info['characters']}")
-        print("===================================\n")
-
+        logger = logging.getLogger(__name__)
+        logger.info(
+            "Vector store created with %s chunks.",
+            vector_info["chunk_count"]
+        )
+            
+        logger.info(
+            "Document processed. Pages=%s Chunks=%s Characters=%s",
+            document_info["pages"],
+            document_info["chunk_count"],
+            document_info["characters"],
+        )
         return UploadResponse(
             success=True,
             message="Document uploaded successfully.",

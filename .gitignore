@@ -32,3 +32,26 @@ dist/
 
 # Logs
 *.log
+
+# Python
+backend/.venv/
+backend/__pycache__/
+backend/**/*.pyc
+
+# Storage
+backend/storage/
+
+# Environment files
+backend/.env
+frontend/.env
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
